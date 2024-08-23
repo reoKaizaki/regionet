@@ -1,0 +1,25 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class PostsTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        for ($i = 1; $i <= 10; $i++) {
+            DB::table('posts')->insert([
+                'user_id'    => $i,
+                'content'       => 'これはテスト投稿' .$i,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+    }
+}
